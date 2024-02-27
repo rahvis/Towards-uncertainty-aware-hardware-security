@@ -1,0 +1,261 @@
+\documentclass[letterpaper, 12pt]{article}
+
+% This will set the margins for the thesis paper
+\usepackage[left=1in,right=1in, top=1in, bottom=1in]{geometry}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\captionsetup[figure]{format=plain, font={bf}, labelsep=period, justification=raggedright, singlelinecheck=false, name=FIGURE}
+\usepackage[compact]{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{setspace}
+\setstretch{2}
+\usepackage{ragged2e}
+\setlength{\RaggedRightParindent}{0.5in} % 
+\usepackage{indentfirst}
+\usepackage{tocloft}
+\usepackage{lipsum} 
+
+%ICCAD
+\usepackage{amsthm,amsmath}
+\usepackage {xcolor}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{amsfonts}
+\usepackage{amssymb,mathtools}
+\usepackage{algpseudocode}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+\usepackage{nomencl}
+\hyphenation{op-tical net-works semi-conduc-tor}
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\newcommand{\circleNumber}[1]{%
+  \begin{tikzpicture}[baseline=(char.base)]
+    \node[shape=circle, fill=black, inner sep=2pt] (char) {\textcolor{white}{#1}};
+  \end{tikzpicture}
+}
+\usepackage{cite}
+\usepackage{textcomp}
+\usepackage{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+
+%DATE
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{hyperref}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{amssymb,mathtools}
+\usepackage{algpseudocode}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+\usepackage{soul}
+\usepackage{textcomp}
+\usepackage{xcolor}
+%\newtheorem{theorem}{Theorem}
+%\newtheorem{corollary}{Corollary}
+%\newtheorem{lemma}[theorem]{Lemma}
+
+
+\renewcommand{\abstractname}{\uppercase{Abstract}} 
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} 
+\renewcommand{\cftdotsep}{0.5} 
+\renewcommand{\contentsname}{\uppercase{Table of Contents}} 
+\renewcommand{\cfttoctitlefont}{\normalfont\bfseries}
+\renewcommand{\cftsecfont}{\normalfont}
+\renewcommand{\cftsecpagefont}{\normalfont}
+\renewcommand{\cftlottitlefont}{\normalfont\bfseries\MakeUppercase}
+% Reformatting List of Tables
+\renewcommand{\cfttabaftersnum}{.}
+% Reformatting List of Figures
+\renewcommand{\cftloftitlefont}{\normalfont\bfseries\MakeUppercase}
+\renewcommand{\cftfigaftersnum}{.}
+% Reformatting section and subsection title
+\titleformat*{\section}{\centering\normalfont\bfseries\uppercase}
+\titleformat*{\subsection}{\centering\normalfont\bfseries}
+
+% APA Citation
+\usepackage[style=apa, citestyle=numeric, sorting=none, backend=biber,]{biblatex}
+\addbibresource{references.bib}
+
+\setlength{\bibhang}{0.5in}
+
+\DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{#1}}
+
+\defbibenvironment{bibliography}
+  {\list
+     {}
+     {\setlength{\leftmargin}{\bibhang}%
+      \setlength{\itemindent}{-\leftmargin}%
+      \setlength{\itemsep}{\bibitemsep}%
+      \setlength{\parsep}{\bibparsep}}}
+  {\endlist}
+  {\item
+   \printtext[labelnumberwidth]{%
+     \printfield{labelprefix}%
+      \printfield{labelnumber}}%
+   \addspace}
+
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+
+% Table stuff
+\usepackage{longtable}
+\usepackage{array}
+
+\DeclareCaptionLabelFormat{table_label}{\textbf{TABLE \arabic{table}. }}
+\captionsetup[longtable]{labelfont=bf, textfont=bf, labelsep=none, labelformat=table_label, singlelinecheck=off, justification=raggedright}
+\captionsetup[LT]{labelfont=bf, textfont=bf, labelsep=none, labelformat=table_label, singlelinecheck=off, justification=raggedright}
+
+\newcolumntype{S}{>{\raggedright\arraybackslash\hspace{0pt}}p}
+
+% List of Abbreviations Stuff
+\usepackage{nomencl}
+\renewcommand{\nomname}{} % Change the title for the list of abbreviations because the function prints out its own title so this prevents it by having empty brackets
+\renewcommand{\nompreamble}{\vspace{-1\baselineskip}} % Remove extra space left by the empty title
+\setlength{\nomlabelwidth}{5.4cm}
+\makenomenclature
+
+\begin{document}
+
+% Preliminary Pages
+\input{preliminary_pages/titlepage.tex}
+
+\pagenumbering{gobble}
+\input{preliminary_pages/copyrightpage.tex}
+\newpage
+
+\pagenumbering{roman}
+\setcounter{page}{2}
+
+\phantomsection
+\addcontentsline{toc}{section}{ABSTRACT}
+\section*{Abstract}
+\input{preliminary_pages/abstract.tex}
+\newpage
+
+\phantomsection
+\addcontentsline{toc}{section}{ACKNOWLEDGMENTS}
+\section*{Acknowledgments}
+\input{preliminary_pages/acknowledgments.tex}
+\newpage
+
+\doublespacing
+\begin{center}
+\tableofcontents
+\newpage
+
+\phantomsection
+\addcontentsline{toc}{section}{LIST OF TABLES}
+\listoftables
+\newpage
+
+\phantomsection
+\addcontentsline{toc}{section}{LIST OF FIGURES}
+\listoffigures
+\newpage
+
+\pagenumbering{arabic} % changing the page numbers to Arabic 1, 2, 3
+\addtocontents{toc}{\setlength{\cftsecindent}{1cm}}
+
+\setstretch{2}
+% Chapters 
+\phantomsection
+\addcontentsline{toc}{section}{1. INTRODUCTION}
+\section*{Chapter 1 \\INTRODUCTION}
+\input{chapters/ch1_Introduction}
+\newpage
+
+\phantomsection
+\addcontentsline{toc}{section}{2. PALETTE: DETECTING EVOLVING HARDWARE TROJAN}
+\section*{Chapter 2 \\ PALETTE: DETECTING EVOLVING HARDWARE TROJAN}
+\input{chapters/ch2_ICCAD}
+\newpage
+
+\phantomsection
+\addcontentsline{toc}{section}{3. NOODLE: UNCERTAINTY-AWARE MULTIMODAL DEEP LEARNING}
+\section*{Chapter 3 \\ NOODLE: UNCERTAINTY-AWARE MULTIMODAL DEEP LEARNING}
+\input{chapters/ch3_DATE}
+\newpage
+
+\iffalse 
+\phantomsection
+\addcontentsline{toc}{section}{4. SECURING CHAOTIC COMMUNICATION WITH MEMRISTORS}
+\section*{Chapter 4 \\ SECURING CHAOTIC COMMUNICATION WITH MEMRISTORS}
+\input{chapters/ch4_CHAOS}
+\newpage
+\fi 
+
+\phantomsection
+\addcontentsline{toc}{section}{4. CONCLUSIONS AND FUTURE WORK}
+\section*{Chapter 4 \\ CONCLUSIONS AND FUTURE WORK }
+\input{chapters/ch5_Conclusions_and_Future_Work}
+\newpage
+
+
+\iffalse 
+% Appendix
+\addtocontents{toc}{\setlength{\cftsecindent}{0cm}} 
+\phantomsection
+\addcontentsline{toc}{section}{APPENDICES}
+\begin{center}
+\null
+\vfill
+\textbf{APPENDICES}
+\vfill
+\newpage 
+\end{center}
+
+\begin{center}
+\null
+\vfill
+\textbf{APPENDIX A \\ GAZE METRICS}
+\vfill
+\newpage 
+\end{center}
+
+\addtocontents{toc}{\setlength{\cftsecindent}{1cm}}
+\phantomsection
+\addcontentsline{toc}{section}{A. GAZE METRICS}
+\input{appendices/a_gaze_metrics}
+\newpage
+
+\begin{center}
+\null
+\vfill
+\textbf{APPENDIX B \\ CLASSIFIERS}
+\vfill
+\newpage 
+\end{center}
+
+\addtocontents{toc}{\setlength{\cftsecindent}{1cm}}
+\phantomsection
+\addcontentsline{toc}{section}{B. CLASSIFIERS}
+\input{appendices/b_classifiers}
+\newpage
+
+\fi 
+
+% References
+\begin{center}
+\null
+\vfill
+\textbf{REFERENCES}
+\vfill
+\newpage 
+\end{center}
+
+\addtocontents{toc}{\setlength{\cftsecindent}{0cm}} 
+\phantomsection
+\addcontentsline{toc}{section}{REFERENCES}
+\renewcommand{\refname}{REFERENCES}
+\printbibliography
+
+\end{document}
