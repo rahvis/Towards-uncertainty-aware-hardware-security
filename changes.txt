@@ -1,0 +1,27 @@
+
+02/29/2024
+
+Chap 1: Introduction
+    -   Intro; 
+    -   Research Gap; 
+    -   Prelim, 
+    -   Realted Work 
+    -   Contribution 
+
+Chap 2: PALETTE
+    -   Intro
+    -   Evolving Trojans and Design
+    -   Experiment 
+
+Chap 3: NOODLE 
+    -   Intro 
+    -   MM HT Detection 
+    -   Experiment 
+
+Chap 4: Conclusion 
+    -   Conc
+    -   Future Work 
+
+    
+
+
